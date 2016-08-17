@@ -2,3 +2,4 @@ discord.py[voice]
 mutagen
 Pillow
 colorama
+youtube_dl
