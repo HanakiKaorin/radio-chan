@@ -31,7 +31,7 @@ loop = asyncio.get_event_loop()
 
 OPUS_LIBS = ['libopus-0.x86.dll', 'libopus-0.x64.dll', 'libopus-0.dll', 'libopus.so.0', 'libopus.0.dylib']
 def load_opus_lib(opus_libs=OPUS_LIBS):
-    if discord.opus.is_loaded():
+    if (discord.opus.is_loaded()):
         return True
     for discord.opus_lib in opus_libs:
         try:
@@ -47,10 +47,6 @@ async def on_ready():
     dprint(Fore.GREEN + 'Connected as ' + client.user.name + ' (' + client.user.id + ')')
     await client.change_status(game=None, idle=False)
 
-def yt_format(vid, title, uploader, dur):
-    print(vid + '\n' + title + '\n' + uploader + '\n' + dur)
-    return vid
-
 async def yt_queue(s, m):
     global prev, song, voice, player, yt
 
@@ -59,7 +55,6 @@ async def yt_queue(s, m):
         'noplaylist': True,
         'nocheckcertificate': True,
         'quiet': True,
-        #'outtmpl': yt_format('%(id)s', '%(title)s', '%(uploader)s', '%(duration)s'),
         'outtmpl': ytDir + '%(id)s',
         'default_search': 'auto'
     }
@@ -367,7 +362,7 @@ if __name__ == '__main__':
     builtins.queue           = []
     builtins.vote            = []
     builtins.listening       = []
-    builtins.playing         = False
+    builtins.playing         = True
 
     refresh_songs(echo=False)
 
